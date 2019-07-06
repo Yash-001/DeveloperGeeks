@@ -1,0 +1,59 @@
+.bigblue {
+    color: yellowgreen;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+  
+  body {
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+  
+.newcolor{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}    
+#id{
+    align: center;
+}
+
+.rout{
+  text-align: left;
+}    
+.inp{
+  text-align: center;
+} 
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 161px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: red;
+}
+
