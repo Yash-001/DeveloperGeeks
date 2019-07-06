@@ -1,0 +1,70 @@
+import React, { Component } from 'react';
+import styles from './style.module.css';
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      user: ' ',
+      password: ' ',
+      err: " "
+    };
+  }
+
+  getFormData = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({ [nam]: val });
+  }
+  setFormData = (event) => {
+    event.preventDefault();
+    let errorVal = ' ';
+    let passw = this.state.password;
+    let uname = this.state.user;
+    if (passw !== " " && passw.length < 4) {
+      errorVal = <strong>Enter At Least 4 Characters</strong>
+    }
+    else if (passw === "12345" && uname === "yash") {
+      alert("login success");
+      this.props.history.push('./smallApp');
+    }
+    else {
+      alert("login failed");
+      this.props.history.push('./Contact');
+    }
+    this.setState({ err: errorVal });
+  }
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick = () => {
+    this.setState({ date: new Date() })
+  };
+
+  render() {
+    return (
+
+      <div>
+        <h1 className={styles.newcolor}>Glenwood Systems</h1>
+        <h2 className={styles.bigblue}>Time : {this.state.date.toLocaleTimeString()}.</h2>
+        <form input className={styles.inp}>
+          Username:<input className={styles.inp} type="text" name="user" onChange={this.getFormData} /><br /><br />
+          Password:<input className={styles.inp} type="text" name="password" id="passw" onChange={this.getFormData} /><br /><br />
+          {this.state.err}
+          <input type="submit" value="Submit" onClick={this.setFormData} />
+
+        </form>
+        </div>
+     
+    );
+  }
+}
+export default Home;
